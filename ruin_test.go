@@ -39,3 +39,16 @@ func TestRuinPop(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, 1, value)
 }
+
+func TestRuinPeek(t *testing.T) {
+	dummy := []int{1, 2, 3, 4, 5}
+
+	r := ruin.New(dummy)
+
+	assert.Equal(t, 5, r.Len())
+
+	value := r.Peek()
+	assert.Equal(t, 1, value)
+
+	assert.Equal(t, 5, r.Len())
+}

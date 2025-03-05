@@ -34,3 +34,7 @@ func (r *Ruin[T]) Pop() (T, error) {
 func (r *Ruin[T]) Insert(data T) {
 	r.data = append(r.data, data)
 }
+
+func (r *Ruin[T]) Peek() T {
+	return r.data[0]
+}
