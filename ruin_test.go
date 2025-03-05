@@ -47,7 +47,8 @@ func TestRuinPeek(t *testing.T) {
 
 	assert.Equal(t, 5, r.Len())
 
-	value := r.Peek()
+	value, err := r.Peek()
+	assert.NoError(t, err)
 	assert.Equal(t, 1, value)
 
 	assert.Equal(t, 5, r.Len())
