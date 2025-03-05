@@ -12,16 +12,10 @@ type Ruin[T any] struct {
 }
 
 func (r *Ruin[T]) Data() []T {
-	r.m.Lock()
-	defer r.m.Unlock()
-
 	return r.data
 }
 
 func (r *Ruin[_]) Len() int {
-	r.m.Lock()
-	defer r.m.Unlock()
-
 	return len(r.data)
 }
 
@@ -49,21 +43,17 @@ func (r *Ruin[T]) Insert(data T) {
 }
 
 func (r *Ruin[T]) Peek() (T, error) {
-	r.m.Lock()
-	defer r.m.Unlock()
-
 	var result T
 
 	if len(r.data) == 0 {
 		return result, EmptyError
 	}
 
+	result = r.data[0]
+
 	return result, nil
 }
 
 func (r *Ruin[T]) IsEmpty() bool {
-	r.m.Lock()
-	defer r.m.Unlock()
-
 	return r.Len() == 0
 }
