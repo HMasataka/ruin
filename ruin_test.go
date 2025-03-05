@@ -16,6 +16,13 @@ func TestNewRuin(t *testing.T) {
 	}
 }
 
+func TestRuinData(t *testing.T) {
+	dummy := []int{1, 2, 3, 4, 5}
+
+	r := ruin.New(dummy)
+	assert.Equal(t, []int{1, 2, 3, 4, 5}, r.Data())
+}
+
 func TestRuinLen(t *testing.T) {
 	dummy := []int{1, 2, 3, 4, 5}
 

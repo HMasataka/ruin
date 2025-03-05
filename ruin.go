@@ -1,13 +1,17 @@
 package ruin
 
 func New[T any](data []T) *Ruin[T] {
-	return &Ruin[T]{Data: data}
+	return &Ruin[T]{data: data}
 }
 
 type Ruin[T any] struct {
-	Data []T
+	data []T
+}
+
+func (r *Ruin[T]) Data() []T {
+	return r.data
 }
 
 func (r *Ruin[_]) Len() int {
-	return len(r.Data)
+	return len(r.data)
 }
