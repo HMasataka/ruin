@@ -52,3 +52,16 @@ func TestRuinPeek(t *testing.T) {
 
 	assert.Equal(t, 5, r.Len())
 }
+
+func TestRuinEmptyTrue(t *testing.T) {
+	dummy := []int{}
+	r := ruin.New(dummy)
+
+	assert.Equal(t, true, r.IsEmpty())
+}
+
+func TestRuinEmptyFalse(t *testing.T) {
+	dummy := []int{1, 2, 3, 4, 5}
+	r := ruin.New(dummy)
+	assert.Equal(t, false, r.IsEmpty())
+}

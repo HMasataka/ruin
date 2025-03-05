@@ -38,3 +38,7 @@ func (r *Ruin[T]) Insert(data T) {
 func (r *Ruin[T]) Peek() T {
 	return r.data[0]
 }
+
+func (r *Ruin[T]) IsEmpty() bool {
+	return r.Len() == 0
+}
