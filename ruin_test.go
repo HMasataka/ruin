@@ -29,3 +29,13 @@ func TestRuinLen(t *testing.T) {
 	r := ruin.New(dummy)
 	assert.Equal(t, 5, r.Len())
 }
+
+func TestRuinPop(t *testing.T) {
+	dummy := []int{1, 2, 3, 4, 5}
+
+	r := ruin.New(dummy)
+
+	value, err := r.Pop()
+	assert.NoError(t, err)
+	assert.Equal(t, 1, value)
+}
