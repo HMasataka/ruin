@@ -40,7 +40,7 @@ func (r *ruin[T]) Pop() (T, error) {
 	var result T
 
 	if len(r.data) == 0 {
-		return result, EmptyError
+		return result, ErrEmpty
 	}
 
 	result = r.data[0]
@@ -60,7 +60,7 @@ func (r *ruin[T]) Peek() (T, error) {
 	var result T
 
 	if len(r.data) == 0 {
-		return result, EmptyError
+		return result, ErrEmpty
 	}
 
 	result = r.data[0]
