@@ -35,7 +35,7 @@ func (r *Ruin[T]) Pop() (T, error) {
 	return result, nil
 }
 
-func (r *Ruin[T]) Insert(data T) {
+func (r *Ruin[T]) Push(data T) {
 	r.m.Lock()
 	defer r.m.Unlock()
 
