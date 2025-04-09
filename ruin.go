@@ -57,3 +57,19 @@ func (r *Ruin[T]) Peek() (T, error) {
 func (r *Ruin[T]) IsEmpty() bool {
 	return r.Len() == 0
 }
+
+// Clear はデータをクリアします
+func (r *Ruin[T]) Clear() {
+	r.m.Lock()
+	defer r.m.Unlock()
+	r.data = r.data[:0]
+}
+
+// Clone は現在のインスタンスのディープコピーを返します
+func (r *Ruin[T]) Clone() *Ruin[T] {
+	r.m.Lock()
+	defer r.m.Unlock()
+	newData := make([]T, len(r.data))
+	copy(newData, r.data)
+	return New(newData)
+}
