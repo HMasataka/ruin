@@ -2,6 +2,20 @@ package ruin
 
 import "sync"
 
+type Ruinable[T any] interface {
+	// 基本操作
+	Pop() (T, error)
+	Push(T)
+	Peek() (T, error)
+	IsEmpty() bool
+	Len() int
+
+	// データ操作
+	Clear()
+	Clone() *Ruin[T]
+	Data() []T
+}
+
 func New[T any](data []T) *Ruin[T] {
 	return &Ruin[T]{data: data}
 }
